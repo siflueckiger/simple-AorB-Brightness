@@ -1,6 +1,11 @@
 /**
  * game_state play geht ca. 1000 ms eine Schlaufe
  */
+/**
+ * TODO
+ * 
+ * LEVELs und Anleitung erstellen
+ */
 function init_arrays () {
     SOLUTIONS = [
     "A",
