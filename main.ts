@@ -28,7 +28,8 @@ function wrong_answer () {
 }
 function user_wins_the_game () {
     basic.showIcon(IconNames.Happy)
-    basic.pause(1000)
+    basic.pause(3500)
+    game_state = "wait"
 }
 function correct_answer () {
     actual_level += 1
@@ -91,6 +92,30 @@ function show_level () {
 input.onButtonPressed(Button.A, function () {
     user_input = "A"
 })
+function wait_screen () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . . . . .
+        . . . . .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+    basic.pause(50)
+}
+input.onButtonPressed(Button.AB, function () {
+    basic.clearScreen()
+    if (game_state == "wait") {
+        game_state = "play"
+    }
+})
 input.onButtonPressed(Button.B, function () {
     user_input = "B"
 })
@@ -105,33 +130,41 @@ let ALL_GAME_NUMBERS: number[] = []
 let SOLUTIONS: string[] = []
 let actual_level = 0
 let user_input = ""
+let game_state = ""
 init_arrays()
 get_random_gamenumber()
+game_state = "wait"
 user_input = "X"
 actual_level = 0
 let MAX_LEVELS = 3
 basic.forever(function () {
-    if (actual_level < MAX_LEVELS) {
-        show_level()
-        if (user_input == "A") {
-            serial.writeLine("user pressed: " + user_input)
-            if (SOLUTIONS[random_index] == user_input) {
-                correct_answer()
+    if (game_state == "wait") {
+        wait_screen()
+    } else if (game_state == "play") {
+        if (actual_level < MAX_LEVELS) {
+            show_level()
+            if (user_input == "A") {
+                serial.writeLine("user pressed: " + user_input)
+                if (SOLUTIONS[random_index] == user_input) {
+                    correct_answer()
+                } else {
+                    wrong_answer()
+                }
+            } else if (user_input == "B") {
+                serial.writeLine("user pressed: " + user_input)
+                if (SOLUTIONS[random_index] == user_input) {
+                    correct_answer()
+                } else {
+                    wrong_answer()
+                }
             } else {
-                wrong_answer()
-            }
-        } else if (user_input == "B") {
-            serial.writeLine("user pressed: " + user_input)
-            if (SOLUTIONS[random_index] == user_input) {
-                correct_answer()
-            } else {
-                wrong_answer()
+                basic.pause(100)
             }
         } else {
-            basic.pause(100)
+            user_wins_the_game()
         }
+        basic.pause(500)
     } else {
-        user_wins_the_game()
+    	
     }
-    basic.pause(500)
 })
