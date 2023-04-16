@@ -32,9 +32,11 @@ function wrong_answer () {
     }
 }
 function user_looses_game () {
+    music.startMelody(music.builtInMelody(Melodies.Funeral), MelodyOptions.Once)
     led.setBrightness(255)
     basic.showIcon(IconNames.Skull)
-    basic.pause(3500)
+    basic.pause(3000)
+    music.stopMelody(MelodyStopOptions.All)
     game_state = "wait"
 }
 function user_wins_the_game () {
@@ -171,7 +173,7 @@ led.setBrightness(255)
 init_arrays()
 get_random_gamenumber()
 let brightness = 255
-let MAX_TIME = 60
+let MAX_TIME = 10
 game_state = "wait"
 user_input = "X"
 actual_level = 0
@@ -181,6 +183,7 @@ basic.forever(function () {
     if (game_state == "wait") {
         wait_screen()
     } else if (game_state == "play") {
+        music.startMelody(music.builtInMelody(Melodies.Funk), MelodyOptions.ForeverInBackground)
         brightness += -1 * (255 / MAX_TIME)
         led.setBrightness(brightness)
         if (brightness >= 0) {
