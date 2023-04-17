@@ -1,11 +1,6 @@
 /**
  * game_state play geht ca. 1000 ms eine Schlaufe
  */
-/**
- * TODO
- * 
- * LEVELs und Anleitung erstellen
- */
 function init_arrays () {
     SOLUTIONS = [
     "A",
@@ -228,7 +223,7 @@ led.setBrightness(255)
 init_arrays()
 get_random_gamenumber()
 let brightness = 255
-let MAX_TIME = 10000
+let MAX_TIME = 60
 game_state = "wait"
 user_input = "X"
 actual_level = 0
