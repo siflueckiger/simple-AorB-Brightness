@@ -10,16 +10,26 @@ function init_arrays () {
     SOLUTIONS = [
     "A",
     "B",
+    "A",
+    "B",
+    "B",
     "B",
     "A",
-    "A"
+    "A",
+    "A",
+    "B"
     ]
     ALL_GAME_NUMBERS = [
     0,
     1,
     2,
     3,
-    4
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
     ]
 }
 function wrong_answer () {
@@ -68,43 +78,83 @@ function correct_answer () {
 function show_level () {
     if (actual_gamenumber == 0) {
         basic.showLeds(`
-            # # # . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
+            # # # . #
+            . # # . #
+            # # # # #
+            . . . # .
+            . # # . #
             `)
     } else if (actual_gamenumber == 1) {
         basic.showLeds(`
-            . . . . .
-            . . # # #
-            . . . . .
-            . . . . .
-            . . . . .
+            . . # # .
+            . # . # #
+            # # # . .
+            # . # # .
+            . . # # .
             `)
     } else if (actual_gamenumber == 2) {
         basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . # # #
-            . . . . .
-            . . . . .
+            # # . . .
+            . # . . #
+            # # # # #
+            # # . . #
+            . . . # #
             `)
     } else if (actual_gamenumber == 3) {
         basic.showLeds(`
+            # # . . .
+            # # . # #
+            # . # . #
             . . . . .
-            . . . . .
-            . . . . .
-            # # # . .
-            . . . . .
+            # . # # .
             `)
     } else if (actual_gamenumber == 4) {
         basic.showLeds(`
+            # . . # #
+            . . # # .
+            # # # # .
+            . # . . .
+            # . # . .
+            `)
+    } else if (actual_gamenumber == 5) {
+        basic.showLeds(`
+            . # . . #
+            . # . # #
+            # # . # #
+            # . # # #
+            . . # . .
+            `)
+    } else if (actual_gamenumber == 6) {
+        basic.showLeds(`
+            # . . # #
+            . # . # .
+            . . # . .
+            # # . # .
+            # # # . #
+            `)
+    } else if (actual_gamenumber == 7) {
+        basic.showLeds(`
+            . . . # #
             . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
+            # . # # #
+            # . # # .
+            # # . # #
+            `)
+    } else if (actual_gamenumber == 8) {
+        basic.showLeds(`
             # # # . .
+            # . # . #
+            # # . . #
+            . # . # .
+            . . # . #
+            `)
+    } else if (actual_gamenumber == 9) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            # . . . .
+            . . . . .
+            # . . # .
             `)
     } else {
     	
@@ -178,7 +228,7 @@ led.setBrightness(255)
 init_arrays()
 get_random_gamenumber()
 let brightness = 255
-let MAX_TIME = 10
+let MAX_TIME = 10000
 game_state = "wait"
 user_input = "X"
 actual_level = 0
