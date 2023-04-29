@@ -73,83 +73,75 @@ function correct_answer () {
 function show_level () {
     if (actual_gamenumber == 0) {
         basic.showLeds(`
-            # # # # #
-            . . . # .
-            . . # . .
-            . # . . .
-            # # # # #
+            . # # . .
+            # # # . .
+            . # # # #
+            . # # # .
+            . . . . .
             `)
     } else if (actual_gamenumber == 1) {
         basic.showLeds(`
-            # # # # #
-            . . . # .
-            . . # . .
-            . . . # .
-            # # # # #
+            . . # # .
+            . . # # #
+            # # # # .
+            . # # # .
+            . . . . .
             `)
     } else if (actual_gamenumber == 2) {
         basic.showLeds(`
+            . # # . .
+            # # # . .
+            . # # # #
             . # # # .
-            # . . . #
-            # # # # #
-            # . . . #
-            # . . . #
+            . # . # .
             `)
     } else if (actual_gamenumber == 3) {
         basic.showLeds(`
-            # . . . #
-            # # . . #
+            . # # # .
             # . # . #
-            # . . # #
+            # # # # #
+            # # # # #
             # . . . #
             `)
     } else if (actual_gamenumber == 4) {
         basic.showLeds(`
+            . # # # .
+            # . # . #
             # # # # #
-            . . # . .
-            . . # . .
-            . . # . .
             # # # # #
+            # . # . #
             `)
     } else if (actual_gamenumber == 5) {
         basic.showLeds(`
-            # # # # .
-            . . # . #
-            . . # . #
-            . . # . #
-            # # # # .
+            . # # # .
+            # # . # #
+            # # # # #
+            # # # # #
+            # . # . #
             `)
     } else if (actual_gamenumber == 6) {
         basic.showLeds(`
-            # . . . #
-            # . . . #
-            # # # # #
-            # . . . #
-            # . . . #
+            # # . . .
+            . # . . .
+            . # . . .
+            . # # # .
+            . # . # .
             `)
     } else if (actual_gamenumber == 7) {
         basic.showLeds(`
-            . # # # #
-            # . # . .
-            # . # . .
-            # . # . .
-            . # # # #
+            . . . # #
+            . . . # .
+            . . . # .
+            . # # # .
+            . # . # .
             `)
     } else if (actual_gamenumber == 8) {
         basic.showLeds(`
-            # . . . #
-            # # . # #
-            # . # . #
-            # . . . #
-            # . . . #
-            `)
-    } else if (actual_gamenumber == 9) {
-        basic.showLeds(`
-            # . . . #
-            # . . # #
-            # . # . #
-            # # . . #
-            # . . . #
+            . . . # #
+            . . . # .
+            # . . # .
+            . # # # .
+            . # . # .
             `)
     } else {
     	
