@@ -5,12 +5,12 @@ function init_arrays () {
     SOLUTIONS = [
     "A",
     "B",
-    "A",
     "B",
     "B",
+    "A",
     "B",
     "A",
-    "A",
+    "B",
     "A",
     "B"
     ]
@@ -145,8 +145,22 @@ function show_level () {
             . # # # .
             . # . # .
             `)
+    } else if (actual_gamenumber == 8) {
+        basic.showLeds(`
+            . # # . .
+            . # . . .
+            . # . . #
+            . # # # .
+            . # . # .
+            `)
     } else {
-    	
+        basic.showLeds(`
+            # # . . #
+            # . . # #
+            # # . . #
+            # . . . #
+            # # . . #
+            `)
     }
 }
 input.onButtonPressed(Button.A, function () {
