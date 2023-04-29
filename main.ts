@@ -50,6 +50,8 @@ function user_looses_game () {
     game_state = "wait"
 }
 function user_wins_the_game () {
+    music.stopMelody(MelodyStopOptions.All)
+    music.playMelody("F G A - C5 - - - ", 999)
     led.setBrightness(255)
     basic.showIcon(IconNames.Happy)
     basic.pause(3500)
@@ -199,7 +201,7 @@ input.onButtonPressed(Button.B, function () {
 function get_random_gamenumber () {
     random_index = randint(0, ALL_GAME_NUMBERS.length - 1)
     actual_gamenumber = ALL_GAME_NUMBERS[random_index]
-    if (false) {
+    if (true) {
         serial.writeLine("actual_game_num: " + actual_gamenumber)
     }
 }
@@ -248,7 +250,7 @@ basic.forever(function () {
             # # . # .
             `)
     }
-    if (true) {
+    if (false) {
         serial.writeLine("game_state: " + game_state)
         serial.writeLine("brightness: " + brightness)
         serial.writeLine("" + (input.runningTime() - timestamp))
