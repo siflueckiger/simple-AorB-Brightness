@@ -211,7 +211,7 @@ input.onButtonPressed(Button.B, function () {
 })
 function init_new_game () {
     brightness = 255
-    MAX_TIME = 60
+    MAX_TIME = 53
     game_state = "wait"
     user_input = "X"
     actual_level = 0
