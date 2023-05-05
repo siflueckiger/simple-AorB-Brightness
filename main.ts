@@ -47,6 +47,7 @@ function user_looses_game () {
     basic.showIcon(IconNames.Skull)
     basic.pause(3000)
     music.stopMelody(MelodyStopOptions.All)
+    actual_level = 0
     game_state = "wait"
 }
 function user_wins_the_game () {
@@ -201,12 +202,21 @@ function wait_screen () {
 input.onButtonPressed(Button.AB, function () {
     basic.clearScreen()
     if (game_state == "wait") {
+        init_new_game()
         game_state = "play"
     }
 })
 input.onButtonPressed(Button.B, function () {
     user_input = "B"
 })
+function init_new_game () {
+    brightness = 255
+    MAX_TIME = 60
+    game_state = "wait"
+    user_input = "X"
+    actual_level = 0
+    MAX_LEVELS = 3
+}
 function get_random_gamenumber () {
     random_index = randint(0, ALL_GAME_NUMBERS.length - 1)
     actual_gamenumber = ALL_GAME_NUMBERS[random_index]
@@ -215,22 +225,20 @@ function get_random_gamenumber () {
     }
 }
 let timestamp = 0
+let MAX_LEVELS = 0
+let MAX_TIME = 0
+let brightness = 0
 let random_index = 0
 let actual_gamenumber = 0
+let game_state = ""
+let user_input = ""
+let actual_level = 0
 let ALL_GAME_NUMBERS: number[] = []
 let SOLUTIONS: string[] = []
-let actual_level = 0
-let user_input = ""
-let game_state = ""
 led.setBrightness(255)
 init_arrays()
 get_random_gamenumber()
-let brightness = 255
-let MAX_TIME = 60
-game_state = "wait"
-user_input = "X"
-actual_level = 0
-let MAX_LEVELS = 3
+init_new_game()
 basic.forever(function () {
     timestamp = input.runningTime()
     if (game_state == "wait") {
