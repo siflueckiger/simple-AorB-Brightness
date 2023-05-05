@@ -55,6 +55,7 @@ function user_wins_the_game () {
     led.setBrightness(255)
     basic.showIcon(IconNames.Happy)
     basic.pause(3500)
+    actual_level = 0
     game_state = "wait"
 }
 function correct_answer () {
