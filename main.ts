@@ -145,7 +145,7 @@ function show_level () {
             . # # # .
             . # . # .
             `)
-    } else if (actual_gamenumber == 8) {
+    } else if (actual_gamenumber == 9) {
         basic.showLeds(`
             . # # . .
             . # . . .
